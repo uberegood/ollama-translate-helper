@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ollama translate helper</title>
+    <link rel="stylesheet" href="ui.css" />
+  </head>
+  <body class="popup-body">
+    <main class="card">
+      <h1>Ollama translate helper</h1>
+      <p class="subtitle">Select text and choose an action</p>
+
+      <div class="actions">
+        <button id="translateBtn" class="btn primary">Translate → EN</button>
+        <button id="translateRuBtn" class="btn">Translate → RU</button>
+        <button id="paraphraseBtn" class="btn">Paraphrase EN</button>
+      </div>
+
+      <div class="shortcuts">
+        <div><strong>Alt+Shift+E</strong> — translate</div>
+        <div><strong>Alt+Shift+R</strong> — translate to Russian</div>
+        <div><strong>Alt+Shift+Q</strong> — paraphrase</div>
+      </div>
+
+      <div id="status" class="status" aria-live="polite"></div>
+
+      <div class="actions-row">
+        <button id="testConnectionBtn" class="btn" type="button">Test connection</button>
+      </div>
+
+      <details class="quick-settings">
+        <summary>Quick settings</summary>
+        <label class="field">
+          <span>Provider</span>
+          <select id="provider">
+            <option value="ollama-generate">Ollama /api/generate</option>
+            <option value="openai-chat">OpenAI-style /chat/completions</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Endpoint</span>
+          <input id="endpoint" type="url" />
+        </label>
+
+        <label class="field">
+          <span>Model</span>
+          <input id="model" type="text" />
+        </label>
+
+        <label class="field checkbox">
+          <input id="replaceSelection" type="checkbox" />
+          <span>Auto-replace selected text</span>
+        </label>
+
+        <div class="actions-row">
+          <button id="saveQuickSettings" class="btn">Save settings</button>
+          <button id="openOptions" class="link-btn" type="button">All settings</button>
+        </div>
+      </details>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

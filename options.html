@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ollama translate helper — Settings</title>
+    <link rel="stylesheet" href="ui.css" />
+  </head>
+  <body>
+    <main class="options-wrap">
+      <h1>Ollama translate helper — Settings</h1>
+
+      <label class="field">
+        <span>Provider</span>
+        <select id="provider">
+          <option value="ollama-generate">Ollama /api/generate</option>
+          <option value="openai-chat">OpenAI-style /chat/completions (Open WebUI)</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span>Endpoint URL</span>
+        <input id="endpoint" type="url" placeholder="http://10.20.30.3:11434/api/generate" />
+      </label>
+
+      <label class="field">
+        <span>Model</span>
+        <input id="model" type="text" placeholder="translategemma:4b" />
+      </label>
+
+      <label class="field">
+        <span>API Key (optional)</span>
+        <input id="apiKey" type="password" placeholder="Bearer token if required" />
+      </label>
+
+      <label class="field checkbox">
+        <input id="replaceSelection" type="checkbox" />
+        <span>Automatically replace selected text</span>
+      </label>
+
+      <label class="field">
+        <span>Translation prompt</span>
+        <textarea id="translatePrompt" rows="4"></textarea>
+      </label>
+
+      <label class="field">
+        <span>Russian translation prompt</span>
+        <textarea id="translateRuPrompt" rows="4"></textarea>
+      </label>
+
+      <label class="field">
+        <span>Paraphrase prompt</span>
+        <textarea id="paraphrasePrompt" rows="4"></textarea>
+      </label>
+
+      <div class="actions-row">
+        <button id="saveBtn" class="btn primary">Save</button>
+        <button id="resetBtn" class="btn">Reset to defaults</button>
+      </div>
+
+      <p id="status" class="status"></p>
+      <p class="hint">Tip: if direct Ollama access returns 403 api forbidden, use Open WebUI endpoint <code>http://localhost:3000/api/chat/completions</code> or configure OLLAMA_ORIGINS on the Ollama host.</p>
+    </main>
+
+    <script src="options.js"></script>
+  </body>
+</html>

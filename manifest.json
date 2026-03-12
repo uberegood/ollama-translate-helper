@@ -1,0 +1,63 @@
+{
+  "manifest_version": 3,
+  "name": "Ollama translate helper",
+  "description": "Translate and paraphrase selected text with Ollama/Open WebUI.",
+  "version": "0.1.0",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "contextMenus",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "http://10.20.30.3:11434/*",
+    "http://10.20.30.3:3000/*",
+    "http://localhost:11434/*",
+    "http://127.0.0.1:11434/*",
+    "http://localhost:3000/*",
+    "http://127.0.0.1:3000/*"
+  ],
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content-script.js"
+      ],
+      "all_frames": true,
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "options.html",
+  "action": {
+    "default_title": "Ollama translate helper",
+    "default_popup": "popup.html"
+  },
+  "commands": {
+    "translate_selection": {
+      "suggested_key": {
+        "default": "Alt+Shift+E"
+      },
+      "description": "Translate selected text to English"
+    },
+    "paraphrase_selection": {
+      "suggested_key": {
+        "default": "Alt+Shift+Q"
+      },
+      "description": "Paraphrase selected text in English"
+    },
+    "translate_selection_ru": {
+      "suggested_key": {
+        "default": "Alt+Shift+R"
+      },
+      "description": "Translate selected text to Russian"
+    }
+  }
+}
