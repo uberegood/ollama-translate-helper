@@ -11,6 +11,12 @@ It supports:
 - Hotkeys, context menu actions, popup actions
 - Ollama (`/api/generate`) and Open WebUI/OpenAI-style (`/chat/completions`)
 
+## Screenshots
+
+![Screenshot 1](images/screenshot-1.png)
+
+![Screenshot 2](images/screenshot-2.png)
+
 ## Features
 
 - `Alt+Shift+E` — translate selected text to English
